@@ -30,7 +30,7 @@ public abstract class LoggingCRUDImpl
 
         Entity savedEntity = super.save(entity);
 
-        logger.info(entity.getClass().getSimpleName() + " is saved", savedEntity);
+        logger.info(entity.getClass().getSimpleName() + " is saved: " + entity);
 
         return savedEntity;
     }
@@ -41,7 +41,7 @@ public abstract class LoggingCRUDImpl
         List<Entity> entityList = super.saveAll(entities);
 
         for (Entity entity : entityList) {
-            logger.info(entity.getClass().getSimpleName() + " is saved", entity);
+            logger.info(entity.getClass().getSimpleName() + " is saved: " + entity);
         }
 
         return entityList;
@@ -58,7 +58,7 @@ public abstract class LoggingCRUDImpl
 
         Entity updatedEntity = super.update(entity);
 
-        logger.info(entity.getClass().getSimpleName() + " is updated", updatedEntity);
+        logger.info(entity.getClass().getSimpleName() + " is updated: " + updatedEntity);
 
         return updatedEntity;
     }
@@ -73,7 +73,7 @@ public abstract class LoggingCRUDImpl
 
         Boolean isDeleted = super.delete(id);
 
-        logger.info(entity.getClass().getSimpleName() + " is " + (isDeleted ? null : "not") + " deleted", entity);
+        logger.info(entity.getClass().getSimpleName() + " is " + (isDeleted ? null : "not") + " deleted: " + entity);
 
         return isDeleted;
     }
@@ -83,7 +83,7 @@ public abstract class LoggingCRUDImpl
 
         Boolean isDeleted = super.delete(entity);
 
-        logger.info(entity.getClass().getSimpleName() + " is " + (isDeleted ? null : "not") + " deleted", entity);
+        logger.info(entity.getClass().getSimpleName() + " is " + (isDeleted ? null : "not") + " deleted: " + entity);
 
         return isDeleted;
     }
@@ -94,7 +94,7 @@ public abstract class LoggingCRUDImpl
         Boolean isDeleted = super.deleteAll(entities);
 
         for (Entity entity : entities) {
-            logger.info(entity.getClass().getSimpleName() + " is " + (isDeleted ? null : "not") + " deleted", entity);
+            logger.info(entity.getClass().getSimpleName() + " is " + (isDeleted ? null : "not") + " deleted: " + entity);
         }
 
         return isDeleted;
