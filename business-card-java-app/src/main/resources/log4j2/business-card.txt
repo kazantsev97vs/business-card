@@ -1,0 +1,9 @@
+08-05-2020 06:29:42.482  INFO s.t.t.BusinessCard [main] Starting BusinessCard on DESKTOP-4SBJLMF with PID 1228 (C:\Users\kvs\Desktop\tests\business-card\business-card-java-app\target\classes started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 06:29:42.498 DEBUG s.t.t.BusinessCard [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 06:29:42.498  INFO s.t.t.BusinessCard [main] No active profile set, falling back to default profiles: default
+08-05-2020 06:29:45.501  INFO s.t.t.BusinessCard [main] Started BusinessCard in 3.277 seconds (JVM running for 4.429)
+08-05-2020 06:29:57.423  INFO s.t.t.s.UserServiceTest [main] Starting UserServiceTest on DESKTOP-4SBJLMF with PID 4796 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 06:29:57.429 DEBUG s.t.t.s.UserServiceTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 06:29:57.430  INFO s.t.t.s.UserServiceTest [main] No active profile set, falling back to default profiles: default
+08-05-2020 06:30:02.007  INFO s.t.t.s.UserServiceTest [main] Started UserServiceTest in 4.832 seconds (JVM running for 6.552)
+08-05-2020 06:30:02.395  INFO s.t.t.i.i.LoggingCRUDImpl [main] User is saved: { id: 31, firstName: 'firstNameTest', lastName: 'lastNameTest', login: 'loginTest', password: 'passwordTest', email: 'emailTest@email.com', gender: MALE }
