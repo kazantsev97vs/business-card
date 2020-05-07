@@ -99,7 +99,7 @@ public abstract class CRUDImpl
     public Boolean delete(Entity entity) {
 
         repository.delete(entity);
-        
+
         return !existsById((ID) entity.getId());
     }
 
