@@ -18,4 +18,9 @@ public abstract class BaseEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+
+    @Override
+    public String toString() {
+        return "id: " + id;
+    }
 }
