@@ -20,7 +20,7 @@ public abstract class LoggingCRUDImpl
 
     public LoggingCRUDImpl(Repository repository) { super(repository); }
 
-    private static final Logger logger = LogManager.getLogger(LoggingCRUDImpl.class);
+    protected static final Logger logger = LogManager.getLogger(LoggingCRUDImpl.class);
 
     private static final String SAVED = "SAVED: ";
     private static final String UPDATED = "UPDATED: ";
