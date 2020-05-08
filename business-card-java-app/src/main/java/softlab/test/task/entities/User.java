@@ -2,6 +2,7 @@ package softlab.test.task.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import softlab.test.task.enums.Gender;
 import softlab.test.task.super_classes.BaseEntity;
@@ -13,6 +14,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 public class User extends BaseEntity {
 
     private String firstName;
