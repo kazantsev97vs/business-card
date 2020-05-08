@@ -22,6 +22,34 @@ public abstract class SpecificBaseEntityCRUDImpl
         super(repository);
     }
 
+
+    // Create ----------------------------------
+
+    @Override
+    public Entity save(Entity entity) {
+
+        if (repository.getByName(entity.getName()) != null) {
+            logger.error(entity.getClass().getSimpleName() + " is already exists with name = " + entity.getName() + " and NOT SAVED");
+            return null;
+        }
+
+        return super.save(entity);
+    }
+
+    @Override
+    public List<Entity> saveAll(List<Entity> entities) {
+
+        for (Entity entity : entities) {
+            if (repository.getByName(entity.getName()) != null) {
+                logger.error(entity.getClass().getSimpleName() + " is already exists with name = " + entity.getName() + " and ALL e NOT SAVED");
+                return null;
+            }
+        }
+        return super.saveAll(entities);
+    }
+
+    // Read ------------------------------------
+
     @Override
     public Entity getByName(String name) {
         return repository.getByName(name);
