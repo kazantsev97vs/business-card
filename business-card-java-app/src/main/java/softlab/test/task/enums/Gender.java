@@ -4,6 +4,17 @@ package softlab.test.task.enums;
  * Пол
  */
 public enum Gender {
-    MALE,
-    FEMALE,
+
+    MALE ("Мужской "),
+    FEMALE ("	Женский");
+
+    private String value;
+
+    Gender(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
+    }
 }
