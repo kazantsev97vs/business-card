@@ -3,7 +3,6 @@ package softlab.test.task.super_classes;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.MappedSuperclass;
 
 /**
@@ -19,4 +18,9 @@ public abstract class SpecificBaseEntity extends BaseEntity {
      * Название сущности
      */
     private String name;
+
+    @Override
+    public String toString() {
+        return super.toString() + ", name: '" + name + "'";
+    }
 }
