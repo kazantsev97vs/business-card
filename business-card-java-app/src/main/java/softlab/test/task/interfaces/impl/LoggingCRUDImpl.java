@@ -22,6 +22,9 @@ public abstract class LoggingCRUDImpl
 
     private static final Logger logger = LogManager.getLogger(LoggingCRUDImpl.class);
 
+    private static final String SAVED = "SAVED: ";
+    private static final String UPDATED = "UPDATED: ";
+    private static final String DELETED = "DELETED: ";
 
     // Create ----------------------------------
 
@@ -30,7 +33,7 @@ public abstract class LoggingCRUDImpl
 
         Entity savedEntity = super.save(entity);
 
-        logger.info(entity.getClass().getSimpleName() + " is saved: " + entity);
+        logger.info(logCreator(entity, SAVED, savedEntity != null));
 
         return savedEntity;
     }
@@ -41,7 +44,7 @@ public abstract class LoggingCRUDImpl
         List<Entity> entityList = super.saveAll(entities);
 
         for (Entity entity : entityList) {
-            logger.info(entity.getClass().getSimpleName() + " is saved: " + entity);
+            logger.info(logCreator(entity, SAVED, true));
         }
 
         return entityList;
@@ -56,9 +59,11 @@ public abstract class LoggingCRUDImpl
     @Override
     public Entity update(Entity entity) {
 
+        Entity entityLastVersion = get((ID) entity.getId());
+
         Entity updatedEntity = super.update(entity);
 
-        logger.info(entity.getClass().getSimpleName() + " is updated: " + updatedEntity);
+        logger.info(logCreator(entity, UPDATED, !updatedEntity.equals(entityLastVersion)));
 
         return updatedEntity;
     }
@@ -73,7 +78,7 @@ public abstract class LoggingCRUDImpl
 
         Boolean isDeleted = super.delete(id);
 
-        logger.info(entity.getClass().getSimpleName() + " is " + (isDeleted ? null : "not") + " deleted: " + entity);
+        logger.info(logCreator(entity, DELETED, isDeleted));
 
         return isDeleted;
     }
@@ -83,7 +88,7 @@ public abstract class LoggingCRUDImpl
 
         Boolean isDeleted = super.delete(entity);
 
-        logger.info(entity.getClass().getSimpleName() + " is " + (isDeleted ? null : "not") + " deleted: " + entity);
+        logger.info(logCreator(entity, DELETED, isDeleted));
 
         return isDeleted;
     }
@@ -94,7 +99,7 @@ public abstract class LoggingCRUDImpl
         Boolean isDeleted = super.deleteAll(entities);
 
         for (Entity entity : entities) {
-            logger.info(entity.getClass().getSimpleName() + " is " + (isDeleted ? null : "not") + " deleted: " + entity);
+            logger.info(logCreator(entity, DELETED, isDeleted));
         }
 
         return isDeleted;
@@ -108,5 +113,16 @@ public abstract class LoggingCRUDImpl
         logger.info("All rows is " + (isDeleted ? null : "not") + " deleted");
 
         return isDeleted;
+    }
+
+    private String logCreator(Entity entity, String action, Boolean happened) {
+
+        StringBuilder log = new StringBuilder();
+
+        if (!happened) log.append("NOT ");
+
+        log.append(action).append(entity);
+
+        return log.toString();
     }
 }
