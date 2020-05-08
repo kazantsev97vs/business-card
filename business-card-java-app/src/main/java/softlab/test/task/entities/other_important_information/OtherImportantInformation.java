@@ -34,7 +34,7 @@ public class OtherImportantInformation extends BaseEntity {
     /**
      * Станция метро
      */
-    @OneToOne
+    @OneToOne(optional = false)
     private SubwayStation subwayStation;
 
     /**

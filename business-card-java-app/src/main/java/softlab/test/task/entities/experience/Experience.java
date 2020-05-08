@@ -34,7 +34,7 @@ public class Experience extends BaseEntity {
     /**
      * Должность
      */
-    @OneToOne
+    @OneToOne(optional = false)
     private Position position;
 
     /**

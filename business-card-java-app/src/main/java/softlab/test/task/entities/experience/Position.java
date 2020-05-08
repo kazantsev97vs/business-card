@@ -19,7 +19,7 @@ public class Position extends SpecificBaseEntity {
     /**
      * Профессиональная область к которой относится должность
      */
-    @ManyToOne
+    @ManyToOne(optional = false)
     private ProfessionalArea professionalArea;
 
     public Position(String name, ProfessionalArea professionalArea) {

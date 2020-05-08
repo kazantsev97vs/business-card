@@ -1,6 +1,8 @@
 package softlab.test.task.entities.education;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import softlab.test.task.super_classes.SpecificBaseEntity;
 
 import javax.persistence.Entity;
@@ -12,6 +14,8 @@ import java.util.List;
  */
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Faculty extends SpecificBaseEntity {
 
     @ManyToMany

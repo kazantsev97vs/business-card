@@ -1,12 +1,11 @@
 package softlab.test.task.entities.experience;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import softlab.test.task.super_classes.SpecificBaseEntity;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -15,18 +14,19 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class ProfessionalArea extends SpecificBaseEntity {
 
     /**
      * Список вариантов навыков, которые могут быть у пользователя в текущей профессиональной области
      */
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Skill> skills;
 
     /**
      * Список вариантов должностей, которые могут быть у пользователя в текущей профессиональной области
      */
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Position> positions;
 
     public ProfessionalArea(String name, List<Skill> skills, List<Position> positions) {

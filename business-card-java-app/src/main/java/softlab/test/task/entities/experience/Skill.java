@@ -17,7 +17,7 @@ public class Skill extends SpecificBaseEntity {
     /**
      * Профессиональная область к которой относится навык
      */
-    @ManyToOne
+    @ManyToOne(optional = false)
     private ProfessionalArea professionalArea;
 
     public Skill(String name, ProfessionalArea professionalArea) {
