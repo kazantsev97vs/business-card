@@ -21,10 +21,20 @@ import java.util.List;
 public class Country extends SpecificBaseEntity {
 
     /**
+     * Регион
+     */
+    private String region;
+
+    /**
+     * Столица
+     */
+    private String capital;
+
+    /**
      * У страны есть список официальных языков (мб один), на которых говорят граждане
      */
     @ManyToMany
-    private List<Language> languageList;
+    private List<Language> officialLanguages;
 
     /**
      * У страны есть список городов, которые ей принаждлежат
@@ -36,14 +46,10 @@ public class Country extends SpecificBaseEntity {
         super(name);
     }
 
-    public Country(String name, List<Language> languageList) {
+    public Country(String name, String region, String capital, List<Language> officialLanguages) {
         super(name);
-        this.languageList = languageList;
-    }
-
-    public Country(String name, List<Language> languageList, List<City> cityList) {
-        super(name);
-        this.languageList = languageList;
-        this.cityList = cityList;
+        this.region = region;
+        this.capital = capital;
+        this.officialLanguages = officialLanguages;
     }
 }

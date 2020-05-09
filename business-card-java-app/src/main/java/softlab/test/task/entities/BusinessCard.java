@@ -117,7 +117,7 @@ public class BusinessCard extends SpecificBaseEntity {
     private Double salary;                              // зарплата
 
     @OneToMany
-    private List<ProfessionalArea> professionalArea;    // профессиональная область
+    private List<ProfessionalArea> professionalAreaList;    // профессиональная область
 
     /*
         Образование ----------------------------
