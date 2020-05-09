@@ -7,3 +7,77 @@
 08-05-2020 06:29:57.430  INFO s.t.t.s.UserServiceTest [main] No active profile set, falling back to default profiles: default
 08-05-2020 06:30:02.007  INFO s.t.t.s.UserServiceTest [main] Started UserServiceTest in 4.832 seconds (JVM running for 6.552)
 08-05-2020 06:30:02.395  INFO s.t.t.i.i.LoggingCRUDImpl [main] User is saved: { id: 31, firstName: 'firstNameTest', lastName: 'lastNameTest', login: 'loginTest', password: 'passwordTest', email: 'emailTest@email.com', gender: MALE }
+08-05-2020 17:27:53.894  INFO s.t.t.s.LanguageServiceCRUDTest [main] Starting LanguageServiceCRUDTest on DESKTOP-4SBJLMF with PID 9784 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 17:27:53.910 DEBUG s.t.t.s.LanguageServiceCRUDTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 17:27:53.910  INFO s.t.t.s.LanguageServiceCRUDTest [main] No active profile set, falling back to default profiles: default
+08-05-2020 17:27:59.668  INFO s.t.t.s.LanguageServiceCRUDTest [main] Started LanguageServiceCRUDTest in 5.993 seconds (JVM running for 7.691)
+08-05-2020 17:31:38.425  INFO s.t.t.s.LanguageServiceCRUDTest [main] Starting LanguageServiceCRUDTest on DESKTOP-4SBJLMF with PID 1688 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 17:31:38.432 DEBUG s.t.t.s.LanguageServiceCRUDTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 17:31:38.433  INFO s.t.t.s.LanguageServiceCRUDTest [main] No active profile set, falling back to default profiles: default
+08-05-2020 17:31:44.346  INFO s.t.t.s.LanguageServiceCRUDTest [main] Started LanguageServiceCRUDTest in 6.152 seconds (JVM running for 8.161)
+08-05-2020 17:31:44.822  INFO s.t.t.i.i.LoggingCRUDImpl [main] SAVED: Language()
+08-05-2020 17:33:41.797  INFO s.t.t.s.LanguageServiceCRUDTest [main] Starting LanguageServiceCRUDTest on DESKTOP-4SBJLMF with PID 11588 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 17:33:41.802 DEBUG s.t.t.s.LanguageServiceCRUDTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 17:33:41.804  INFO s.t.t.s.LanguageServiceCRUDTest [main] No active profile set, falling back to default profiles: default
+08-05-2020 17:33:48.539  INFO s.t.t.s.LanguageServiceCRUDTest [main] Started LanguageServiceCRUDTest in 6.989 seconds (JVM running for 9.187)
+08-05-2020 17:33:48.986  INFO s.t.t.i.i.LoggingCRUDImpl [main] SAVED: Language()
+08-05-2020 17:36:18.732  INFO s.t.t.s.LanguageServiceCRUDTest [main] Starting LanguageServiceCRUDTest on DESKTOP-4SBJLMF with PID 7048 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 17:36:18.739 DEBUG s.t.t.s.LanguageServiceCRUDTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 17:36:18.740  INFO s.t.t.s.LanguageServiceCRUDTest [main] No active profile set, falling back to default profiles: default
+08-05-2020 17:36:24.659  INFO s.t.t.s.LanguageServiceCRUDTest [main] Started LanguageServiceCRUDTest in 6.193 seconds (JVM running for 7.94)
+08-05-2020 17:36:25.113  INFO s.t.t.i.i.LoggingCRUDImpl [main] SAVED: Language{SpecificBaseEntity(name=Russian)}
+08-05-2020 17:38:17.521  INFO s.t.t.s.LanguageServiceCRUDTest [main] Starting LanguageServiceCRUDTest on DESKTOP-4SBJLMF with PID 1876 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 17:38:17.528 DEBUG s.t.t.s.LanguageServiceCRUDTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 17:38:17.529  INFO s.t.t.s.LanguageServiceCRUDTest [main] No active profile set, falling back to default profiles: default
+08-05-2020 17:38:23.260  INFO s.t.t.s.LanguageServiceCRUDTest [main] Started LanguageServiceCRUDTest in 5.964 seconds (JVM running for 7.719)
+08-05-2020 17:38:23.667  INFO s.t.t.i.i.LoggingCRUDImpl [main] SAVED: Language { id: 5, name: 'Russian' }
+08-05-2020 17:48:44.298  INFO s.t.t.s.LanguageServiceCRUDTest [main] Starting LanguageServiceCRUDTest on DESKTOP-4SBJLMF with PID 9452 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 17:48:44.304 DEBUG s.t.t.s.LanguageServiceCRUDTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 17:48:44.305  INFO s.t.t.s.LanguageServiceCRUDTest [main] No active profile set, falling back to default profiles: default
+08-05-2020 17:48:50.056  INFO s.t.t.s.LanguageServiceCRUDTest [main] Started LanguageServiceCRUDTest in 6.009 seconds (JVM running for 7.69)
+08-05-2020 17:49:44.185  INFO s.t.t.s.LanguageServiceCRUDTest [main] Starting LanguageServiceCRUDTest on DESKTOP-4SBJLMF with PID 2436 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 17:49:44.189 DEBUG s.t.t.s.LanguageServiceCRUDTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 17:49:44.192  INFO s.t.t.s.LanguageServiceCRUDTest [main] No active profile set, falling back to default profiles: default
+08-05-2020 17:49:50.946  INFO s.t.t.s.LanguageServiceCRUDTest [main] Started LanguageServiceCRUDTest in 7.015 seconds (JVM running for 9.182)
+08-05-2020 17:51:00.529  INFO s.t.t.s.LanguageServiceCRUDTest [main] Starting LanguageServiceCRUDTest on DESKTOP-4SBJLMF with PID 10300 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 17:51:00.545 DEBUG s.t.t.s.LanguageServiceCRUDTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 17:51:00.546  INFO s.t.t.s.LanguageServiceCRUDTest [main] No active profile set, falling back to default profiles: default
+08-05-2020 17:51:06.546  INFO s.t.t.s.LanguageServiceCRUDTest [main] Started LanguageServiceCRUDTest in 6.29 seconds (JVM running for 8.273)
+08-05-2020 17:51:06.959  INFO s.t.t.i.i.LoggingCRUDImpl [main] SAVED: Language { id: 8, name: 'English' }
+08-05-2020 17:51:23.520  INFO s.t.t.s.LanguageServiceCRUDTest [main] Starting LanguageServiceCRUDTest on DESKTOP-4SBJLMF with PID 1312 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 17:51:23.526 DEBUG s.t.t.s.LanguageServiceCRUDTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 17:51:23.527  INFO s.t.t.s.LanguageServiceCRUDTest [main] No active profile set, falling back to default profiles: default
+08-05-2020 17:51:29.351  INFO s.t.t.s.LanguageServiceCRUDTest [main] Started LanguageServiceCRUDTest in 6.053 seconds (JVM running for 7.806)
+08-05-2020 17:51:29.866  INFO s.t.t.i.i.LoggingCRUDImpl [main] SAVED: Language { id: 9, name: 'English' }
+08-05-2020 21:50:15.181  INFO s.t.t.s.LanguageServiceCRUDTest [main] Starting LanguageServiceCRUDTest on DESKTOP-4SBJLMF with PID 11892 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 21:50:15.187 DEBUG s.t.t.s.LanguageServiceCRUDTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 21:50:15.188  INFO s.t.t.s.LanguageServiceCRUDTest [main] No active profile set, falling back to default profiles: default
+08-05-2020 21:50:21.324  INFO s.t.t.s.LanguageServiceCRUDTest [main] Started LanguageServiceCRUDTest in 6.385 seconds (JVM running for 8.23)
+08-05-2020 21:52:04.483  INFO s.t.t.BusinessCard [main] Starting BusinessCard on DESKTOP-4SBJLMF with PID 5708 (C:\Users\kvs\Desktop\tests\business-card\business-card-java-app\target\classes started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 21:52:04.494 DEBUG s.t.t.BusinessCard [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 21:52:04.495  INFO s.t.t.BusinessCard [main] No active profile set, falling back to default profiles: default
+08-05-2020 21:53:13.912  INFO s.t.t.BusinessCard [main] Started BusinessCard in 69.798 seconds (JVM running for 70.72)
+08-05-2020 21:53:41.370  INFO s.t.t.s.LanguageServiceCRUDTest [main] Starting LanguageServiceCRUDTest on DESKTOP-4SBJLMF with PID 8604 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 21:53:41.376 DEBUG s.t.t.s.LanguageServiceCRUDTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 21:53:41.377  INFO s.t.t.s.LanguageServiceCRUDTest [main] No active profile set, falling back to default profiles: default
+08-05-2020 21:53:49.000  INFO s.t.t.s.LanguageServiceCRUDTest [main] Started LanguageServiceCRUDTest in 7.892 seconds (JVM running for 10.137)
+08-05-2020 21:57:18.082  INFO s.t.t.i.i.LoggingCRUDImpl [main] SAVED: Language { id: 1, name: 'English' }
+08-05-2020 22:03:22.560  INFO s.t.t.s.LanguageServiceCRUDTest [main] Starting LanguageServiceCRUDTest on DESKTOP-4SBJLMF with PID 13000 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 22:03:22.560 DEBUG s.t.t.s.LanguageServiceCRUDTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 22:03:22.560  INFO s.t.t.s.LanguageServiceCRUDTest [main] No active profile set, falling back to default profiles: default
+08-05-2020 22:03:28.232  INFO s.t.t.s.LanguageServiceCRUDTest [main] Started LanguageServiceCRUDTest in 5.902 seconds (JVM running for 7.628)
+08-05-2020 22:03:28.550 ERROR s.t.t.i.i.LoggingCRUDImpl [main] Language is already exists with name = English and NOT SAVED
+08-05-2020 22:14:09.055  INFO s.t.t.s.UserServiceCRUDTest [main] Starting UserServiceCRUDTest on DESKTOP-4SBJLMF with PID 12192 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 22:14:09.061 DEBUG s.t.t.s.UserServiceCRUDTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 22:14:09.062  INFO s.t.t.s.UserServiceCRUDTest [main] No active profile set, falling back to default profiles: default
+08-05-2020 22:14:14.946  INFO s.t.t.s.UserServiceCRUDTest [main] Started UserServiceCRUDTest in 6.122 seconds (JVM running for 7.908)
+08-05-2020 22:14:15.447  INFO s.t.t.i.i.LoggingCRUDImpl [main] SAVED: User { id: 2, firstName: 'firstNameTest', lastName: 'lastNameTest', login: 'loginTest940728582', password: 'passwordTest', email: 'emailTest@email.com', gender: MALE', businessCardList: null' }
+08-05-2020 22:39:45.321  INFO s.t.t.s.BusinessCardServiceCRUDTest [main] Starting BusinessCardServiceCRUDTest on DESKTOP-4SBJLMF with PID 12460 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+08-05-2020 22:39:45.337 DEBUG s.t.t.s.BusinessCardServiceCRUDTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+08-05-2020 22:39:45.337  INFO s.t.t.s.BusinessCardServiceCRUDTest [main] No active profile set, falling back to default profiles: default
+08-05-2020 22:39:55.866  INFO s.t.t.s.BusinessCardServiceCRUDTest [main] Started BusinessCardServiceCRUDTest in 10.804 seconds (JVM running for 12.98)
+08-05-2020 22:40:01.847  INFO s.t.t.i.i.LoggingCRUDImpl [main] SAVED: User { id: 3, firstName: 'firstNameTest', lastName: 'lastNameTest', login: 'loginTest', password: 'passwordTest', email: 'emailTest@email.com', gender: MALE', businessCardList: null' }
+09-05-2020 08:12:52.519  INFO s.t.t.w.JsoupTest [main] Starting JsoupTest on DESKTOP-4SBJLMF with PID 2956 (started by kvs in C:\Users\kvs\Desktop\tests\business-card\business-card-java-app)
+09-05-2020 08:12:52.535 DEBUG s.t.t.w.JsoupTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+09-05-2020 08:12:52.535  INFO s.t.t.w.JsoupTest [main] No active profile set, falling back to default profiles: default
+09-05-2020 08:12:59.737  INFO s.t.t.w.JsoupTest [main] Started JsoupTest in 7.465 seconds (JVM running for 10.393)
