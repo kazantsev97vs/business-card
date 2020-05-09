@@ -21,13 +21,9 @@ public class LanguageServiceCRUDTest {
     @Test
     public void shouldLanguageExistsAfterSaving() {
 
-        System.out.println(languageService.getAll());
-
         Language language = new Language("English");
 
         Language savedLanguage = languageService.save(language);
-
-        System.out.println(savedLanguage);
 
         Assert.notNull(savedLanguage, "Language is not saved!");
     }
