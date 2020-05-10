@@ -1,14 +1,10 @@
 package softlab.test.task.entities.citizenship;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import softlab.test.task.super_classes.SpecificBaseEntity;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -17,8 +13,12 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Country extends SpecificBaseEntity {
+
+    /**
+     * Кодировка ISO 3166-1 alpha-2 страны (код IATA) (у России, например, RU)
+     */
+    private String code;
 
     /**
      * Регион
@@ -46,10 +46,32 @@ public class Country extends SpecificBaseEntity {
         super(name);
     }
 
-    public Country(String name, String region, String capital, List<Language> officialLanguages) {
+    public Country(String name, String code, String region, String capital, List<Language> officialLanguages) {
         super(name);
+        this.code = code;
         this.region = region;
         this.capital = capital;
         this.officialLanguages = officialLanguages;
+    }
+
+    public Country(String name, String code, String region, String capital, List<Language> officialLanguages, List<City> cityList) {
+        super(name);
+        this.code = code;
+        this.region = region;
+        this.capital = capital;
+        this.officialLanguages = officialLanguages;
+        this.cityList = cityList;
+    }
+
+    @Override
+    public String toString() {
+        return "Country { "
+                + super.toString()
+                + ", code: '" + code
+                + "', region: '" + region
+                + "', capital: '" + capital
+                + "', officialLanguages: " + officialLanguages
+                + ", cityList: " + cityList
+                + " }";
     }
 }

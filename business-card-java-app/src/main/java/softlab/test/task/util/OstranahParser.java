@@ -4,11 +4,14 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import softlab.test.task.entities.citizenship.City;
 import softlab.test.task.entities.citizenship.Country;
 import softlab.test.task.entities.citizenship.Language;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Географический справочник
@@ -17,7 +20,8 @@ import java.util.*;
  */
 public class OstranahParser {
 
-    public final static String href = "http://ostranah.ru/";
+    public final static String ostranahHref = "http://ostranah.ru/";
+
 
     public static List<String> keys = new LinkedList<>();
 
@@ -25,17 +29,19 @@ public class OstranahParser {
     private final static String capital = "Столица";
     private final static String officialLanguages = "Официальн[а-я]+ язык[а-я]*";
     private final static String fullName = "Полное название";
+    private final static String code = "Зона в Internet";
 
     static {
         keys.add(region);
         keys.add(capital);
         keys.add(officialLanguages);
         keys.add(fullName);
+        keys.add(code);
     }
 
     public static Map<String, String> getAllWorldCountriesNamesAndHrefs() throws IOException {
 
-        Document ostranahDoc = Jsoup.connect(href).get();
+        Document ostranahDoc = Jsoup.connect(ostranahHref).get();
 
         Element allCountriesElement = ostranahDoc.getElementsByClass("allcountries").get(0);
         Elements ulElements = allCountriesElement.getElementsByTag("ul");
@@ -57,7 +63,7 @@ public class OstranahParser {
     }
 
     public static Map<String, String> getCountryInfo (String countryHref) throws IOException {
-        Document ostranahCountryDoc = Jsoup.connect(href + countryHref).get();
+        Document ostranahCountryDoc = Jsoup.connect(ostranahHref + countryHref).get();
 
         Element infoElement = ostranahCountryDoc.getElementsByClass("info").get(0);
         Elements dtElements = infoElement.getElementsByTag("dt");
@@ -120,11 +126,21 @@ public class OstranahParser {
                 countryOfficialLanguages.add(new Language(language));
             }
 
+            String countryCode = countryInfo.get(code);
+            Pattern countryCodePattern = Pattern.compile("\\.(\\w+)");
+            Matcher matcher = countryCodePattern.matcher(countryCode);
+
+            if (matcher.find() && matcher.group(1) != null) {
+                countryCode = matcher.group(1).toUpperCase();
+            }
+
             Country country = new Country(
                     countryName,
+                    countryCode,
                     countryRegion,
                     countryCapital,
-                    countryOfficialLanguages
+                    countryOfficialLanguages,
+                    null
             );
 
             countryList.add(country);
