@@ -29,6 +29,11 @@ public class ProfessionalArea extends SpecificBaseEntity {
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Position> positions;
 
+    public ProfessionalArea(String name, List<Position> positions) {
+        super(name);
+        this.positions = positions;
+    }
+
     public ProfessionalArea(String name, List<Skill> skills, List<Position> positions) {
         super(name);
         this.skills = skills;
