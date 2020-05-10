@@ -41,7 +41,8 @@ public abstract class SpecificBaseEntityCRUDImpl
 
         for (Entity entity : entities) {
             if (repository.getByName(entity.getName()) != null) {
-                logger.error(entity.getClass().getSimpleName() + " is already exists with name = " + entity.getName() + " and ALL e NOT SAVED");
+                String entityName = entity.getClass().getSimpleName();
+                logger.error(entityName + " is already exists with name = " + entity.getName() + " and ALL " + entityName + "s are NOT SAVED");
                 return null;
             }
         }
