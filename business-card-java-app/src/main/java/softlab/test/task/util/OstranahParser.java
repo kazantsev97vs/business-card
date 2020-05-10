@@ -4,7 +4,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import softlab.test.task.entities.citizenship.City;
 import softlab.test.task.entities.citizenship.Country;
 import softlab.test.task.entities.citizenship.Language;
 
@@ -20,8 +19,7 @@ import java.util.regex.Pattern;
  */
 public class OstranahParser {
 
-    public final static String ostranahHref = "http://ostranah.ru/";
-
+    public final static String href = "http://ostranah.ru/";
 
     public static List<String> keys = new LinkedList<>();
 
@@ -41,7 +39,7 @@ public class OstranahParser {
 
     public static Map<String, String> getAllWorldCountriesNamesAndHrefs() throws IOException {
 
-        Document ostranahDoc = Jsoup.connect(ostranahHref).get();
+        Document ostranahDoc = Jsoup.connect(href).get();
 
         Element allCountriesElement = ostranahDoc.getElementsByClass("allcountries").get(0);
         Elements ulElements = allCountriesElement.getElementsByTag("ul");
@@ -63,7 +61,7 @@ public class OstranahParser {
     }
 
     public static Map<String, String> getCountryInfo (String countryHref) throws IOException {
-        Document ostranahCountryDoc = Jsoup.connect(ostranahHref + countryHref).get();
+        Document ostranahCountryDoc = Jsoup.connect(href + countryHref).get();
 
         Element infoElement = ostranahCountryDoc.getElementsByClass("info").get(0);
         Elements dtElements = infoElement.getElementsByTag("dt");

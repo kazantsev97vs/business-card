@@ -3,7 +3,6 @@ package softlab.test.task.util;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import softlab.test.task.entities.citizenship.City;
 import softlab.test.task.entities.citizenship.Country;
 import softlab.test.task.entities.citizenship.Language;
 import softlab.test.task.services.CountryService;
@@ -43,12 +42,9 @@ public class CitizenshipTest {
 
             languageService.saveAll(languageList);
 
-            for (Country country : countries) {
-
-                List<Language> countryLanguageList = country.getOfficialLanguages();
-                for (Language language: countryLanguageList) language.setId(languageService.getByName(language.getName()).getId());
-
-            }
+            for (Country country : countries)
+                for (Language language: country.getOfficialLanguages())
+                    language.setId(languageService.getByName(language.getName()).getId());
 
             List<Country> savedCountries = countryService.saveAll(countries);
 
