@@ -31,13 +31,13 @@ public class PlanetologParser {
             String city = element.text();
 
             if (city.matches("[а-яА-Яa-zA-Z]{2,}")) {
-                cities.add(new City(city, country));
+                cities.add(new City(city));
 
             } else {
                 if (city.matches("[а-яА-Яa-zA-Z ]{2,}")) {
                     String[] list = city.split(" ");
 
-                    for (String s : list) cities.add(new City(s, country));
+                    for (String s : list) cities.add(new City(s));
                 }
             }
         }
