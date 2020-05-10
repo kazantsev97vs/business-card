@@ -1,7 +1,9 @@
 package softlab.test.task.entities.citizenship;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import softlab.test.task.super_classes.SpecificBaseEntity;
 
 import javax.persistence.*;
@@ -11,7 +13,7 @@ import java.util.List;
  * Страна
  */
 @Entity
-@Data
+@Setter @Getter
 @NoArgsConstructor
 public class Country extends SpecificBaseEntity {
 

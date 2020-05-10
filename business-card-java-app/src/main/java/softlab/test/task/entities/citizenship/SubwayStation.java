@@ -1,25 +1,19 @@
 package softlab.test.task.entities.citizenship;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import softlab.test.task.super_classes.SpecificBaseEntity;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 
 /**
  * Станция метро
  */
 @Entity
-@Data
+@Setter @Getter
 @NoArgsConstructor
 public class SubwayStation extends SpecificBaseEntity {
-
-    /**
-     * Город, к которому относится станция
-     */
-    @ManyToOne
-    private City city;
 
     public SubwayStation(String name) {
         super(name);
@@ -29,7 +23,6 @@ public class SubwayStation extends SpecificBaseEntity {
     public String toString() {
         return "SubwayStation { "
                 + super.toString()
-                + ", city=" + city
                 + " }";
     }
 }
