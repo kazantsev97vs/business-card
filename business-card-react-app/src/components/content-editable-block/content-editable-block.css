@@ -1,0 +1,82 @@
+.content-editable-block {
+    position: relative;
+    box-sizing: border-box;
+    width: fit-content;
+    min-height: 20px;
+    cursor: pointer;
+
+    /** -------------------------------------
+        Ниже можно изменить:
+         - внешние отступы    : margin
+         - внутренние отступы : padding
+         - рамку              : border
+         - углы               : border-radius
+         - тени               : box-shadow
+         - цвет фона          : background
+         - цвет текста        : color
+     */
+
+    margin: 10px;
+    padding: 10px 35px 10px 20px;
+
+    /*border: 1px solid rgba(155, 155, 155, 0.5);*/
+    /*border-radius: 0;*/
+
+    box-shadow: 3px 3px 5px rgba(155, 155, 155, 0.5);
+    /*background: white;*/
+    /*color: black;*/
+
+    /** ------------------------------------- */
+}
+
+.content-editable-block:hover {
+    box-shadow: 4px 4px 5px rgba(155, 155, 155, 0.6);
+}
+
+    .content-editable-wrapper {
+        overflow-x: auto;
+    }
+    .content-editable-wrapper::-webkit-scrollbar {
+        height: 0;
+    }
+
+        .content-editable {
+            position: relative;
+            outline: none;
+            min-height: inherit;
+            cursor: text;
+            z-index: 2;
+
+        }
+
+    .content-editable-button {
+        position: absolute;
+        top: 0;
+        height: 38px;
+        width: 38px;
+        background: none;
+        border: none;
+        outline: none;
+    }
+    .content-editable-button:hover {
+        background: rgba(0, 0, 0, 0.2);
+    }
+    .content-editable-button:active {
+        background: rgba(0, 0, 0, 0.4);
+    }
+    .content-editable-button.button-close {
+        right: 0;
+    }
+
+    .content-editable-placeholder {
+        position: absolute;
+        top: 10px;
+        z-index: 1;
+
+        color: rgba(155, 155, 155, 0.5);
+    }
+
+
+.hidden {
+    display: none;
+}
