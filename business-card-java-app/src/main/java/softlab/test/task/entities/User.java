@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import softlab.test.task.entities.citizenship.City;
 import softlab.test.task.enums.Gender;
 import softlab.test.task.super_classes.BaseEntity;
 
@@ -26,9 +27,13 @@ public class User extends BaseEntity {
 
     private String password;
 
+    @Column(unique = true)
     private String email;
 
     private Gender gender;
+
+    @OneToOne
+    private City currentCity;
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<BusinessCard> businessCardList;
@@ -41,6 +46,11 @@ public class User extends BaseEntity {
         FetchType.LAZY загружает объекты только по мере обращения, но при этом требует, чтобы соединение с базой (или транзакция) сохранялись.
      */
 
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
     public User(String firstName, String lastName, String login, String password, String email, Gender gender) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -48,6 +58,16 @@ public class User extends BaseEntity {
         this.password = password;
         this.email = email;
         this.gender = gender;
+    }
+
+    public User(String firstName, String lastName, String login, String password, String email, Gender gender, City currentCity) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.login = login;
+        this.password = password;
+        this.email = email;
+        this.gender = gender;
+        this.currentCity = currentCity;
     }
 
     @Override

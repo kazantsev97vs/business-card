@@ -15,4 +15,8 @@ public class UserServiceImpl
 
     public UserServiceImpl(UserRepository repository) { super(repository); }
 
+    @Override
+    public User getByLogin(String login) {
+        return repository.getByLogin(login);
+    }
 }
