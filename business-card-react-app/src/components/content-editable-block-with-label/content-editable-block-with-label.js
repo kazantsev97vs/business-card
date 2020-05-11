@@ -3,18 +3,31 @@ import ContentEditableBlock from "../content-editable-block";
 import "./content-editable-block-with-label.css";
 
 const ContentEditableBlockWithLabel = ({
-   label = "Label",
-   width = 500,
+   label = "",
+
+   width = 400,
    height = 70,
-   fieldWidth = width * 0.6,
-   fieldHeight = height,
-   placeholder
+
+   fieldWidth,
+   fieldHeight,
+   fieldMinHeight,
+
+   placeholder,
+   defaultValue,
+
+   getText,
+   getHTML,
+   onEnterPress,
+   onClickOut,
 }) => {
 
     return (
         <div
             className="content-editable-block-with-label"
-            style={{width, height}}
+            style={{
+                width: width ? width : 400,
+                height: height ? height : 70
+            }}
         >
 
             <div className="label">
@@ -25,7 +38,15 @@ const ContentEditableBlockWithLabel = ({
                 <ContentEditableBlock
                     width={fieldWidth}
                     height={fieldHeight}
+                    minHeight={fieldMinHeight}
+
                     placeholder={placeholder}
+                    defaultValue={defaultValue}
+
+                    getText={getText}
+                    getHTML={getHTML}
+                    onEnterPress={onEnterPress}
+                    onClickOut={onClickOut}
                 />
             </div>
 

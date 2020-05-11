@@ -4,9 +4,9 @@ import "./custom-button.css";
 const CustomButton = ({
 
     text = "Сохранить",
+    onClick,
     type = "reset",
-    form = null
-
+    form = null,
 }) => {
 
     return (
@@ -14,6 +14,7 @@ const CustomButton = ({
             className="custom-button"
             type={type}
             form={form}
+            onClick={onClick}
         >
             {text}
         </button>
