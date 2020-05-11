@@ -1,0 +1,35 @@
+.custom-button {
+    color: #373737;
+    letter-spacing: 1px;
+    word-spacing: normal;
+
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+
+    cursor: pointer;
+
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    margin: 0em;
+
+    padding: 7px 20px;
+
+    border-width: 1px;
+    border-color: #ffffff;
+    border-image: initial;
+    outline: none;
+    box-shadow: 2px 2px 5px rgba(155, 155, 155, 0.5);
+}
+
+.custom-button:active {
+    background-color: #f3f3f3;
+}
+
+.custom-button:hover {
+    box-shadow: 3px 3px 5px rgba(155, 155, 155, 0.5);
+}
