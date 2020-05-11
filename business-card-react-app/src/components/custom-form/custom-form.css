@@ -1,0 +1,16 @@
+.custom-form {
+    width: fit-content;
+}
+
+.custom-form__button {
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+    .custom-form__button .custom-button {
+        background: #46b5ff;
+    }
+
+    .custom-form__button .custom-button:hover {
+        background: #44a4ec;
+    }
