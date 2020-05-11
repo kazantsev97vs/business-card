@@ -48,9 +48,9 @@ export default class ContentEditableBlock extends Component {
     }
 
     render() {
-        const {height = null, width = 300, minHeight = 40, placeholder = ""} = this.props;
+        const {width = 200, height, minHeight = 40, placeholder} = this.props;
         const {innerText} = this.state;
-        const style = {width: `${width}px`};
+        const style = {width: `${width ? width : 200}px`};
 
         // Если задана конеретная высота
         if (height) {
@@ -82,6 +82,7 @@ export default class ContentEditableBlock extends Component {
                 <button
                     className={`content-editable-button button-close ${innerText ? "" : "hidden"}`}
                     onClick={this.onClickButtonClose}
+                    tabIndex={-1}
                 >
                     <img src={svgClose} alt="close"/>
                 </button>
@@ -161,7 +162,7 @@ export default class ContentEditableBlock extends Component {
                     event.preventDefault();
                 }
 
-                // Если пользователб отслеживает событие нажатия клавиши "ENTER"
+                // Если пользователь отслеживает событие нажатия клавиши "ENTER"
                 if (onEnterPress) {
                     // отправить содержимое поля ввода
                     onEnterPress({innerText, innerHTML});
@@ -180,7 +181,7 @@ export default class ContentEditableBlock extends Component {
     onClick = (event) => {
         event.stopPropagation();
         const {onClickOut} = this.props;
-        // Если пользователб отслеживает клик за пределами блока поля ввода
+        // Если пользователь отслеживает клик за пределами блока поля ввода
         if (onClickOut) {
             // навешиваем слушатель на нажатие в окне - "Клик за пределами блока поля ввода"
             window.addEventListener('click', this.clickOutsideInputFieldBlock);
