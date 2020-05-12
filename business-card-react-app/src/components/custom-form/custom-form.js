@@ -15,6 +15,9 @@ const CustomForm = ({
     contentEditableBlockMinHeight = null,
     rowsMargin = "15px 0",
     buttonMargin = `40px 0 60px`,
+    buttonText
+
+
 }) => {
 
     const fields = {};
@@ -65,8 +68,12 @@ const CustomForm = ({
                     <div/>
                     <div
                         className="custom-form__button"
-                        style={{width: contentEditableBlockWidth}}>
-                        <CustomButton onClick={() => onClick(fields)}/>
+                        style={{width: contentEditableBlockWidth}}
+                    >
+                        <CustomButton
+                            text={buttonText}
+                            onClick={() => onClick(fields)}
+                        />
                     </div>
                 </CustomRow>
             }
