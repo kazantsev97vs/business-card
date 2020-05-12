@@ -1,8 +1,7 @@
 import React from "react";
 import CustomForm from "../../../components/custom-form";
 import inputs from "./inputs";
-import ContentEditableBlock from "../../../components/content-editable-block";
-import CustomRow from "../../../components/custom-row";
+import {Link} from "react-router-dom";
 
 const SignUpRoute = () => {
 
@@ -13,11 +12,15 @@ const SignUpRoute = () => {
     return (
         <div className="sign-up-route container">
 
-            <h3>Регистрация</h3>
+            <CustomForm
+                name="Регистрация"
+                inputs={inputs}
+                onClick={onClick}
+            />
 
-            <CustomForm inputs={inputs} onClick={onClick} />
-
-
+            <div className="row justify-content-center">
+                <Link to="log-in">или войти..?</Link>
+            </div>
 
         </div>
     );

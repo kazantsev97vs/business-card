@@ -1,9 +1,9 @@
 import React from "react";
 import {Switch, Route} from "react-router-dom";
-import SignUpRoute from "./routes/sign-up/sign-up";
-import LogInRoute from "./routes/logIn";
+import SignUpRoute from "./routes/sign-up/";
+import LogInRoute from "./routes/log-in/";
 
-const Router = () => {// class Router extends Component {
+const Router = () => {
 
     return (
         <div className="router">
