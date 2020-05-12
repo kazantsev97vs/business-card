@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "gender",
+    "label": "Пол",
+    "placeholder":  "Укажите ваш пол..."
+  },
+  {
+    "id": 2,
+    "name": "currentCity",
+    "label": "Город проживания",
+    "placeholder":  "Введите название города..."
+  }
+]
