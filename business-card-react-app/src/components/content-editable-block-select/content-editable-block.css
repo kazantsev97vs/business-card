@@ -1,0 +1,138 @@
+.content-editable-block-select {
+    position: relative;
+    box-sizing: border-box;
+    width: fit-content;
+    min-height: 20px;
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    color: #212529;
+    text-align: left;
+
+    /** -------------------------------------
+        Ниже можно изменить:
+         - внешние отступы    : margin
+         - внутренние отступы : padding
+         - рамку              : border
+         - углы               : border-radius
+         - тени               : box-shadow
+         - цвет фона          : background
+         - цвет текста        : color
+     */
+
+    margin: 10px;
+    padding: 10px 80px 10px 20px;
+
+    /*border: 1px solid rgba(155, 155, 155, 0.5);*/
+    /*border-radius: 0;*/
+
+    box-shadow: 3px 3px 5px rgba(155, 155, 155, 0.5);
+    /*background: white;*/
+    /*color: black;*/
+
+    /** ------------------------------------- */
+}
+
+.content-editable-block-select:hover {
+    box-shadow: 4px 4px 5px rgba(155, 155, 155, 0.6);
+}
+
+    .content-editable-wrapper {
+        overflow-x: auto;
+    }
+    .content-editable-wrapper::-webkit-scrollbar {
+        height: 0;
+    }
+
+        .content-editable {
+            position: relative;
+            outline: none;
+            min-height: inherit;
+            cursor: text;
+            z-index: 2;
+
+        }
+
+    .content-editable-button {
+        position: absolute;
+        top: 0;
+        height: 40px;
+        width: 40px;
+        background: none;
+        border: none;
+        outline: none!important;
+    }
+    .content-editable-button:hover {
+        background: rgba(0, 0, 0, 0.2);
+    }
+    .content-editable-button:active {
+        background: rgba(0, 0, 0, 0.4);
+    }
+    .content-editable-button.button-close {
+        right: 40px;
+    }
+
+    .content-editable-placeholder {
+        position: absolute;
+        top: 10px;
+        z-index: 1;
+
+        color: rgba(155, 155, 155, 0.5);
+    }
+
+
+    .content-editable-dropdown-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 40px;
+        width: 40px;
+        border: none;
+        outline: none!important;
+    }
+
+    .content-editable-dropdown {
+
+        position: relative;
+
+        z-index: 1000;
+        display: none;
+
+        padding: .5rem 0;
+        margin: .125rem 0 0;
+
+        font-size: 1rem;
+        color: #212529;
+        list-style: none;
+        background-color: #fff;
+        background-clip: border-box;
+        box-shadow: 3px 3px 5px rgba(155, 155, 155, 0.5);
+
+        border: none!important;
+        border-radius: 0!important;
+
+        width: 100% !important;
+
+        transform: translate3d(0px, 40px, 0px) !important;
+
+    }
+
+        .content-editable-dropdown .dropdown-item {
+            display: block;
+            width: 100%;
+            padding: 9px 80px 9px 20px;
+            clear: both;
+            font-weight: 400;
+            color: #212529;
+            text-align: inherit;
+            white-space: nowrap;
+            background-color: transparent;
+            border: 0;
+        }
+
+
+.hidden {
+    display: none;
+}
