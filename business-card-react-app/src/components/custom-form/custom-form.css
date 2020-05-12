@@ -1,17 +1,20 @@
 .custom-form {
     width: fit-content;
-    margin: auto;
+    margin: auto!important;
+    position: relative;
 }
 
+
 .custom-form__button {
-    margin-right: 10px;
-    margin-top: 10px;
+    position: absolute;
 }
 
     .custom-form__button .custom-button {
-        background: #46b5ff;
+        background: #0f98f8;
+        color: white;
+        outline: none;
     }
 
     .custom-form__button .custom-button:hover {
-        background: #44a4ec;
+        background: #0f86e6;
     }

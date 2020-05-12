@@ -1,5 +1,5 @@
 .custom-button {
-    color: #373737;
+    color: #212529;
     letter-spacing: 1px;
     word-spacing: normal;
 
@@ -24,6 +24,10 @@
     border-image: initial;
     outline: none;
     box-shadow: 2px 2px 5px rgba(155, 155, 155, 0.5);
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
 }
 
 .custom-button:active {

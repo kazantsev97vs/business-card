@@ -50,7 +50,7 @@ export default class ContentEditableBlock extends Component {
     render() {
         const {width = 200, height, minHeight = 40, placeholder} = this.props;
         const {innerText} = this.state;
-        const style = {width: `${width ? width : 200}px`};
+        const style = {width: `${width ? width - 60 : 200}px`};
 
         // Если задана конеретная высота
         if (height) {
@@ -61,7 +61,7 @@ export default class ContentEditableBlock extends Component {
         return (
             <div
                 className="content-editable-block"
-                style={{minHeight: `${height ? height / 2 : minHeight / 2}px`}}
+                style={{minHeight: `${height ? height : minHeight}px`}}
                 onClick={this.onClick}
             >
                 <div
