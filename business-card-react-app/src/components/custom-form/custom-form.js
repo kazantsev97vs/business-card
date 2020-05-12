@@ -15,9 +15,8 @@ const CustomForm = ({
     contentEditableBlockMinHeight = null,
     rowsMargin = "15px 0",
     buttonMargin = `40px 0 60px`,
-    buttonText
-
-
+    buttonText,
+    href
 }) => {
 
     const fields = {};
@@ -73,6 +72,7 @@ const CustomForm = ({
                         <CustomButton
                             text={buttonText}
                             onClick={() => onClick(fields)}
+                            href={href}
                         />
                     </div>
                 </CustomRow>

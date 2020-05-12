@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import "./custom-button.css";
 
 const CustomButton = ({
@@ -7,18 +8,22 @@ const CustomButton = ({
     onClick,
     type = "reset",
     form = null,
+    href
 }) => {
 
-    return (
-        <button
-            className="custom-button"
-            type={type}
-            form={form}
-            onClick={onClick}
-        >
-            {text}
-        </button>
-    );
+    let button = <button
+        className="custom-button"
+        type={type}
+        form={form}
+        onClick={onClick}
+    >
+        {text}
+    </button>;
+
+    console.log(href)
+    if (href) button = <Link to={href}>{button}</Link>;
+
+    return button;
 };
 
 export default CustomButton;
