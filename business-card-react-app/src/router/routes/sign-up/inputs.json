@@ -3,21 +3,18 @@
     "id": 1,
     "name": "firstName",
     "label": "Имя",
-    "fieldHeight": 40,
-    "placeholder": "Введите имя..."
+    "placeholder":  "Введите имя..."
   },
   {
     "id": 2,
     "name": "lastName",
     "label": "Фамилия",
-    "fieldHeight": 40,
-    "placeholder": "Введите фамилию..."
+    "placeholder":  "Введите фамилию..."
   },
   {
     "id": 3,
     "name": "email",
     "label": "Email",
-    "fieldHeight": 40,
     "placeholder": "Введите email..."
   }
 ]
