@@ -4,6 +4,7 @@ import CustomButton from "../custom-button";
 import "./custom-form.css";
 import ContentEditableBlock from "../content-editable-block";
 import CustomRow from "../custom-row";
+import ContentEditableBlockSelect from "../content-editable-block-select";
 
 const CustomForm = ({
     name,
@@ -16,7 +17,8 @@ const CustomForm = ({
     rowsMargin = "15px 0",
     buttonMargin = `40px 0 60px`,
     buttonText,
-    href
+    href,
+    dropdowns = null
 }) => {
 
     const fields = {};
@@ -41,21 +43,33 @@ const CustomForm = ({
             {
                 inputs.map(item => {
                     return (
-                        <CustomRow
-                            key={item.id}
-                            width={width}
-                            margin={rowsMargin}
-                        >
+                        <CustomRow key={item.id} width={width} margin={rowsMargin}>
+
                             <div>{item.label}</div>
 
-                            <ContentEditableBlock
-                                width={contentEditableBlockWidth}
-                                height={contentEditableBlockHeight}
-                                minHeight={contentEditableBlockMinHeight}
-                                placeholder={item.placeholder}
-                                defaultValue={item.defaultValue}
-                                getText={(text) => getText(text, item.id)}
-                            />
+                            {
+                                item.dropdown
+                                    ?
+                                    <ContentEditableBlockSelect
+                                        width={contentEditableBlockWidth}
+                                        height={contentEditableBlockHeight}
+                                        minHeight={contentEditableBlockMinHeight}
+                                        placeholder={item.placeholder}
+                                        defaultValue={item.defaultValue}
+                                        getText={(text) => getText(text, item.id)}
+                                        dropdowns={dropdowns}
+                                    />
+                                    :
+                                    <ContentEditableBlock
+                                        width={contentEditableBlockWidth}
+                                        height={contentEditableBlockHeight}
+                                        minHeight={contentEditableBlockMinHeight}
+                                        placeholder={item.placeholder}
+                                        defaultValue={item.defaultValue}
+                                        getText={(text) => getText(text, item.id)}
+                                    />
+                            }
+
                         </CustomRow>
                     );
                 })

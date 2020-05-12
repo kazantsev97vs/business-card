@@ -3,7 +3,7 @@ import svgClose from "./close.svg";
 import "./content-editable-block.css";
 
 /**
- * ContentEditableBlock - настраиваемое поля ввода.
+ * ContentEditableBlockSelect - настраиваемое поля ввода.
  *
  *  Список call-back-ов для использующего компонента:
  *      -- getText - вернет использующему компоненту текст поля ввода
