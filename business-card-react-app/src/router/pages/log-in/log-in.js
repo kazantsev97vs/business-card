@@ -1,9 +1,9 @@
 import React from "react";
-import CustomForm from "../../../components/custom-form";
-import inputs from "../log-in/inputs";
 import {Link} from "react-router-dom";
+import inputs from "./inputs";
+import CustomForm from "../../../components/custom-form";
 
-const LogInRoute = () => {
+const LogInPage = () => {
 
     return (
         <div className="log-in-route container">
@@ -23,4 +23,4 @@ const LogInRoute = () => {
     );
 };
 
-export default LogInRoute;
+export default LogInPage;

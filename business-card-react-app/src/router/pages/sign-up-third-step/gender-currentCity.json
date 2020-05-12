@@ -3,12 +3,14 @@
     "id": 1,
     "name": "gender",
     "label": "Пол",
-    "placeholder":  "Укажите ваш пол..."
+    "placeholder":  "Укажите ваш пол...",
+    "checkbox": true
   },
   {
     "id": 2,
     "name": "currentCity",
     "label": "Город проживания",
-    "placeholder":  "Введите название города..."
+    "placeholder":  "Введите название города...",
+    "dropdown": true
   }
 ]

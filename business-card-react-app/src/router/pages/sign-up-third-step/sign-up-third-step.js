@@ -13,6 +13,21 @@ const SignUpThirdStep = () => {
 
     };
 
+    const dropdowns = [
+        {
+            id: 1,
+            value: "Новосибирск"
+        },
+        {
+            id: 2,
+            value: "Бердск"
+        },
+        {
+            id: 3,
+            value: "Искитим"
+        }
+    ];
+
     return (
         <div>
 
@@ -22,6 +37,7 @@ const SignUpThirdStep = () => {
                 inputs={genderCurrentCity}
                 onClick={saveFirstNameLastNameEmail}
                 href={"/"}
+                dropdowns={dropdowns}
             />
 
         </div>
