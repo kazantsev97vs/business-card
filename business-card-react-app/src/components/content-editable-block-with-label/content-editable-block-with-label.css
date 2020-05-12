@@ -1,8 +1,0 @@
-.content-editable-block-with-label {
-    display: table-row;
-}
-
-.content-editable-block-with-label > div {
-    display: table-cell;
-    padding: 10px 0;
-}
