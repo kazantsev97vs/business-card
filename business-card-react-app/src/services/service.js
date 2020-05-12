@@ -2,7 +2,7 @@ import {Type} from "../util";
 
 export default class  Service {
 
-    BASE_URL = "http://localhost:8080/";
+    BASE_URL = "http://localhost:8080";
 
     _GET = "GET";
     _POST = "POST";
