@@ -6,6 +6,7 @@ import ContentEditableBlock from "../content-editable-block";
 import CustomRow from "../custom-row";
 
 const CustomForm = ({
+    name,
     inputs,
     onClick,
     width = 450,
@@ -13,8 +14,7 @@ const CustomForm = ({
     contentEditableBlockHeight = 40,
     contentEditableBlockMinHeight = null,
     rowsMargin = "15px 0",
-    buttonMargin = `30px 15px`,
-    right =  contentEditableBlockWidth - 109
+    buttonMargin = `40px 0 60px`,
 }) => {
 
     const fields = {};
@@ -27,6 +27,16 @@ const CustomForm = ({
         <div className="custom-form ">
 
             {
+                name &&
+                <CustomRow
+                    width={width}
+                    margin={"40px 0"}
+                >
+                    <h3>{name}</h3>
+                </CustomRow>
+            }
+
+            {
                 inputs.map(item => {
                     return (
                         <CustomRow
@@ -35,32 +45,31 @@ const CustomForm = ({
                             margin={rowsMargin}
                         >
                             <div>{item.label}</div>
-                            <div>
-                                <ContentEditableBlock
-                                    width={contentEditableBlockWidth}
-                                    height={contentEditableBlockHeight}
-                                    minHeight={contentEditableBlockMinHeight}
-                                    placeholder={item.placeholder}
-                                    defaultValue={item.defaultValue}
-                                    getText={(text) => getText(text, item.id)}
-                                />
-                            </div>
 
+                            <ContentEditableBlock
+                                width={contentEditableBlockWidth}
+                                height={contentEditableBlockHeight}
+                                minHeight={contentEditableBlockMinHeight}
+                                placeholder={item.placeholder}
+                                defaultValue={item.defaultValue}
+                                getText={(text) => getText(text, item.id)}
+                            />
                         </CustomRow>
                     );
                 })
             }
 
-            <div
-                className="custom-form__button  "
-                style={{
-                    margin: buttonMargin,
-                    right: right
-                }}
-            >
-                    <CustomButton onClick={() => onClick(fields)}/>
-            </div>
-
+            {
+                name &&
+                <CustomRow width={width} margin={buttonMargin} >
+                    <div/>
+                    <div
+                        className="custom-form__button"
+                        style={{width: contentEditableBlockWidth}}>
+                        <CustomButton onClick={() => onClick(fields)}/>
+                    </div>
+                </CustomRow>
+            }
         </div>
     );
 };

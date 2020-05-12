@@ -1,20 +1,20 @@
 .custom-form {
     width: fit-content;
     margin: auto!important;
-    position: relative;
+    box-sizing: border-box;
 }
 
 
 .custom-form__button {
-    position: absolute;
 }
 
-    .custom-form__button .custom-button {
-        background: #0f98f8;
-        color: white;
-        outline: none;
-    }
+.custom-form__button .custom-button {
+    margin-left: -10px;
+    background: #0f98f8;
+    color: white;
+    outline: none;
+}
 
-    .custom-form__button .custom-button:hover {
-        background: #0f86e6;
-    }
+.custom-form__button .custom-button:hover {
+    background: #0f86e6;
+}
