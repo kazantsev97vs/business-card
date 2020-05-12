@@ -15,11 +15,13 @@ import App from "./components/app";
 import "bootstrap/dist/js/bootstrap.min";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import * as service from "./services/";
+
 ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>
           <ErrorBoundary>
-              <AppProvider value={null}>
+              <AppProvider value={service}>
                   <Router>
                       <App/>
                   </Router>
