@@ -4,7 +4,13 @@ import ContentEditableBlockWithLabel from "../content-editable-block-with-label"
 import CustomButton from "../custom-button";
 import "./custom-form.css";
 
-const CustomForm = ({inputs, onClick, width = 380, fieldWidth = 200, paddingTop = 20}) => {
+const CustomForm = ({
+    inputs,
+    onClick,
+    labelWidth = 120,
+    fieldWidth = 250,
+    buttonMargin = 35
+}) => {
 
     const fields = {};
 
@@ -22,7 +28,7 @@ const CustomForm = ({inputs, onClick, width = 380, fieldWidth = 200, paddingTop 
                             key={item.id}
                             label={item.label}
                             height={item.height}
-                            width={width}
+                            labelWidth={labelWidth}
                             fieldHeight={item.fieldHeight}
                             fieldMinHeight={item.fieldMinHeight}
                             fieldWidth={fieldWidth}
@@ -37,8 +43,8 @@ const CustomForm = ({inputs, onClick, width = 380, fieldWidth = 200, paddingTop 
             <div
                 className="custom-form__button"
                 style={{
-                    paddingLeft: width - fieldWidth - 53,
-                    paddingTop: paddingTop
+                    paddingLeft: labelWidth + 10,
+                    marginTop: buttonMargin,
                 }}
             >
                 <CustomButton onClick={() => onClick(fields)}/>

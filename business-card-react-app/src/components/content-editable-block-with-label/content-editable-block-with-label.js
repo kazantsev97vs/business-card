@@ -4,6 +4,7 @@ import "./content-editable-block-with-label.css";
 
 const ContentEditableBlockWithLabel = ({
    label = "",
+   labelWidth = 120,
 
    width = 400,
    height = 70,
@@ -25,12 +26,17 @@ const ContentEditableBlockWithLabel = ({
         <div
             className="content-editable-block-with-label"
             style={{
-                width: width ? width : 400,
+                width: width,
                 height: height ? height : 70
             }}
         >
 
-            <div className="label">
+            <div
+                className="label"
+                style={{
+                    width: labelWidth,
+                }}
+            >
                 <span>{label}</span>
             </div>
 
