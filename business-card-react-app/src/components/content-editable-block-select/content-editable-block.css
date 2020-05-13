@@ -70,7 +70,7 @@
     .content-editable-button:active {
         background: rgba(0, 0, 0, 0.4);
     }
-    .content-editable-button.button-close {
+    .content-editable-block-select .button-close {
         right: 40px;
     }
 

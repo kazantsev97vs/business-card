@@ -1,10 +1,11 @@
 import React from "react";
 
-import CustomButton from "../custom-button";
 import "./custom-form.css";
 import ContentEditableBlock from "../content-editable-block";
 import CustomRow from "../custom-row";
 import ContentEditableBlockSelect from "../content-editable-block-select";
+import CustomButton from "../custom-buttons/custom-button";
+import CustomRadioButton from "../custom-buttons/custom-radio-button";
 
 const CustomForm = ({
     name,
@@ -18,14 +19,58 @@ const CustomForm = ({
     buttonMargin = `40px 0 60px`,
     buttonText,
     href,
-    dropdowns = null
 }) => {
 
     const fields = {};
 
     for (let i = 0; i < inputs.length; i++) fields[inputs[i].name] = "";
 
-    const getText = (text, id) => fields[inputs.find((item) => item.id === id).name] = text;
+    const getValueFromContentEditableBlock = (text, id) => fields[inputs.find((item) => item.id === id).name] = text;
+
+    const getValueFromCustomRadioButton = (name, item) => fields[name] = inputs[0].radio.find(radio => item.id === radio.id);
+
+    const content = (item) => {
+        switch (item.type) {
+            case "select":
+                return (
+                    <ContentEditableBlockSelect
+                        width={contentEditableBlockWidth}
+                        height={contentEditableBlockHeight}
+                        minHeight={contentEditableBlockMinHeight}
+                        placeholder={item.placeholder}
+                        defaultValue={item.defaultValue}
+                        getText={(text) => getValueFromContentEditableBlock(text, item.id)}
+                        dropdown={item.dropdown}
+                    />
+                );
+
+            case "radio":
+                return (
+                    <CustomRow>
+                        {
+                            item.radio.map((itemRadio) => <CustomRadioButton key={itemRadio.id}
+                                 id={itemRadio.id}
+                                 name={item.name}
+                                 label={itemRadio.label}
+                                 checked={() => getValueFromCustomRadioButton(item.name, itemRadio)}
+                            />)
+                        }
+                    </CustomRow>
+                );
+
+            default:
+                return (
+                    <ContentEditableBlock
+                        width={contentEditableBlockWidth}
+                        height={contentEditableBlockHeight}
+                        minHeight={contentEditableBlockMinHeight}
+                        placeholder={item.placeholder}
+                        defaultValue={item.defaultValue}
+                        getText={(text) => getValueFromContentEditableBlock(text, item.id)}
+                    />
+                );
+        }
+    };
 
     return (
         <div className="custom-form ">
@@ -43,32 +88,11 @@ const CustomForm = ({
             {
                 inputs.map(item => {
                     return (
-                        <CustomRow key={item.id} width={width} margin={rowsMargin}>
+                        <CustomRow key={item.id} width={item.width ? item.width : width} margin={rowsMargin}>
 
                             <div>{item.label}</div>
 
-                            {
-                                item.dropdown
-                                    ?
-                                    <ContentEditableBlockSelect
-                                        width={contentEditableBlockWidth}
-                                        height={contentEditableBlockHeight}
-                                        minHeight={contentEditableBlockMinHeight}
-                                        placeholder={item.placeholder}
-                                        defaultValue={item.defaultValue}
-                                        getText={(text) => getText(text, item.id)}
-                                        dropdowns={dropdowns}
-                                    />
-                                    :
-                                    <ContentEditableBlock
-                                        width={contentEditableBlockWidth}
-                                        height={contentEditableBlockHeight}
-                                        minHeight={contentEditableBlockMinHeight}
-                                        placeholder={item.placeholder}
-                                        defaultValue={item.defaultValue}
-                                        getText={(text) => getText(text, item.id)}
-                                    />
-                            }
+                            { content(item) }
 
                         </CustomRow>
                     );

@@ -44,12 +44,13 @@ export default class ContentEditableBlockSelect extends Component {
         this.state = {
             innerText: "",
             innerHTML: "",
-            possibleOptions: null
+            possibleOptions: null,
+            chosenOption: null
         };
     }
 
     render() {
-        const {width = 200, height, minHeight = 40, placeholder, dropdowns} = this.props;
+        const {width = 200, height, minHeight = 40, placeholder, dropdown} = this.props;
         const {innerText, possibleOptions} = this.state;
         const style = {width: `${width ? width - 100 : 200}px`};
 
@@ -115,7 +116,7 @@ export default class ContentEditableBlockSelect extends Component {
                         possibleOptions ?
                             possibleOptions.map(option => this.option(option))
                             :
-                            dropdowns.map(option => this.option(option))
+                            dropdown.map(option => this.option(option))
                     }
                 </div>
             </div>
@@ -137,7 +138,7 @@ export default class ContentEditableBlockSelect extends Component {
 
     dropdownItemClick = (item) => {
         this.contentEditable.current.innerHTML = item.value;
-        this.setState({innerText: item.value, innerHTML: item.value, possibleOptions: null});
+        this.setState({innerText: item.value, innerHTML: item.value, possibleOptions: null, chosenOption: item});
     };
 
     componentDidMount() {
@@ -153,19 +154,13 @@ export default class ContentEditableBlockSelect extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        const {getText, getHTML} = this.props;
-        const {innerText, innerHTML} = this.state;
+        const {getText} = this.props;
+        const {chosenOption} = this.state;
 
         // Если текст поля ввода изменился
         if (prevState.innerText !== this.state.innerText && getText) {
             // Вернуть актуальный текст поля ввода
-            getText(innerText);
-        }
-
-        // Если html поля ввода изменился
-        if (prevState.innerHTML !== this.state.innerHTML && getHTML) {
-            // Вернуть актуальный html поля ввода
-            getHTML(innerHTML);
+            getText(chosenOption);
         }
     }
 
@@ -187,14 +182,12 @@ export default class ContentEditableBlockSelect extends Component {
     onInput = (event) => {
         event.stopPropagation();
 
-        const {dropdowns} = this.props;
+        const {dropdown} = this.props;
 
-        let possibleOptionsTemp = dropdowns.filter(item => item.value.toLowerCase().includes(event.target.innerText.toLocaleLowerCase()));
+        let possibleOptionsTemp = dropdown.filter(item => item.value.toLowerCase().includes(event.target.innerText.toLocaleLowerCase()));
 
         if (possibleOptionsTemp.length === 0 || !event.target.innerText) possibleOptionsTemp = null;
 
-        console.log(possibleOptionsTemp)
-        console.log(event.target.innerText)
         // Запоминаем содержимое поля ввода
         this.setState({innerText: event.target.innerText, innerHTML: event.target.innerHTML, possibleOptions: possibleOptionsTemp});
     };
