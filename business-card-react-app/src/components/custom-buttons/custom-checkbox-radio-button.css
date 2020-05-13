@@ -1,0 +1,116 @@
+/*
+    Перенесем стандартное отображение элементов за область видимости
+    и добавим отступы к соседствующим меткам:
+ */
+input[type="checkbox"]:checked,
+input[type="checkbox"]:not(:checked),
+input[type="radio"]:checked,
+input[type="radio"]:not(:checked)
+{
+    position: absolute;
+    left: -9999px;
+}
+
+input[type="checkbox"]:checked + label,
+input[type="checkbox"]:not(:checked) + label,
+input[type="radio"]:checked + label,
+input[type="radio"]:not(:checked) + label {
+    display: inline-block;
+    position: relative;
+    padding-left: 28px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+/*
+    Перед метками добавим стилизованные контейнеры для наших пользовательских элементов.
+    Для флажков это будут квадраты с немного закругленными для красоты краями,
+    а для переключателей — просто небольшие круги:
+ */
+input[type="checkbox"]:checked + label:before,
+input[type="checkbox"]:not(:checked) + label:before,
+input[type="radio"]:checked + label:before,
+input[type="radio"]:not(:checked) + label:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 18px;
+    height: 18px;
+    /*border: 1px solid #dddddd;*/
+    box-shadow: 3px 3px 5px rgba(155, 155, 155, 0.5);
+
+    background-color: #ffffff;
+}
+
+/*input[type="checkbox"]:checked + label:before,*/
+/*input[type="radio"]:checked + label:before {*/
+/*    background-color: #0f98f8;*/
+/*}*/
+
+input[type="checkbox"]:checked + label:before,
+input[type="checkbox"]:not(:checked) + label:before {
+    border-radius: 2px;
+}
+
+input[type="radio"]:checked + label:before,
+input[type="radio"]:not(:checked) + label:before {
+    border-radius: 100%;
+}
+
+/*
+    Теперь добавим индикаторы выбора. Для флажков это будут галки,
+    для переключателей — заполненные цветом круги меньшего размера, чем сам контейнер.
+    Для большего эффекта зададим также небольшую анимацию:
+ */
+input[type="checkbox"]:checked + label:after,
+input[type="checkbox"]:not(:checked) + label:after,
+input[type="radio"]:checked + label:after,
+input[type="radio"]:not(:checked) + label:after {
+    content: "";
+    position: absolute;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:checked + label:after,
+input[type="checkbox"]:not(:checked) + label:after {
+    left: 4px;
+    top: 6px;
+    width: 10px;
+    height: 5px;
+    border-radius: 1px;
+    border-left: 4px solid #0f98f8;
+    border-bottom: 4px solid #0f98f8;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+input[type="radio"]:checked + label:after,
+input[type="radio"]:not(:checked) + label:after {
+    left: 4px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: #0f98f8;
+}
+
+/*
+    Осталось скрыть индикаторы выбора, когда элемент не выбран,
+    и, соответственно, отображать их, когда элемент находится в выбранном состоянии:
+ */
+input[type="checkbox"]:not(:checked) + label:after,
+input[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+}
+
+input[type="checkbox"]:checked + label:after,
+input[type="radio"]:checked + label:after {
+    opacity: 1;
+}
