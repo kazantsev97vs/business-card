@@ -2,16 +2,19 @@ import React from "react";
 import CustomForm from "../../../components/custom-form";
 import firstNameLastNameEmail from "./firstName-lastName-Email";
 import {Link} from "react-router-dom";
+import {fetchCreateUserRequest, fetchCreateUserSuccess} from "../../../redux/actions/actions-on-user";
+import {compose} from "redux";
+import withService from "../../../additional-components/hoc/withService";
+import {connect} from "react-redux";
+import User from "../../../models/User";
 
-const SignUpFirstStep = ({match}) => {
+const SignUpFirstStep = ({match, fetchCreateUserRequest, fetchCreateUserSuccess}) => {
 
-    const saveFirstNameLastNameEmail = (form) => {
-        console.log(form)
+    const saveFirstNameLastNameEmail = ({firstName, lastName, email}) => {
+        const user = new User(firstName, lastName, null, null, email);
 
-        // user.firstName = form.firstName;
-        // user.lastName = form.lastName;
-        // user.email = form.email;
-
+        fetchCreateUserRequest();
+        fetchCreateUserSuccess(user)
     };
 
     return (
@@ -32,4 +35,13 @@ const SignUpFirstStep = ({match}) => {
     );
 };
 
-export default SignUpFirstStep;
+const mapStateToProps = ({user}) => ({ user });
+
+const mapDispatchToProps = {
+    fetchCreateUserRequest, fetchCreateUserSuccess
+};
+
+export default compose(
+    withService(),
+    connect(mapStateToProps, mapDispatchToProps)
+)(SignUpFirstStep);

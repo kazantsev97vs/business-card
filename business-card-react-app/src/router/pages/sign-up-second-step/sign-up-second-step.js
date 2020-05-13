@@ -1,26 +1,27 @@
 import React from "react";
 import CustomForm from "../../../components/custom-form";
 import loginPassword from "./login-password";
+import {fetchUpdateUserRequest, fetchUpdateUserSuccess} from "../../../redux/actions/actions-on-user";
+import {compose} from "redux";
+import withService from "../../../additional-components/hoc/withService";
+import {connect} from "react-redux";
 
-const SignUpSecondStep = ({match}) => {
+const SignUpSecondStep = ({user, fetchUpdateUserRequest, fetchUpdateUserSuccess}) => {
 
-    const saveFirstNameLastNameEmail = (form) => {
-        console.log(form)
+    const saveLoginPassword = ({login, password}) => {
+        const updatedUser = {...user.user, login, password};
 
-        // user.firstName = form.firstName;
-        // user.lastName = form.lastName;
-        // user.email = form.email;
-
+        fetchUpdateUserRequest();
+        fetchUpdateUserSuccess(updatedUser);
     };
 
-    console.log(match.path.split("/")[1] + "/add-info")
     return (
         <div>
 
             <CustomForm
                 name="Придумайте логин и пароль"
                 inputs={loginPassword}
-                onClick={saveFirstNameLastNameEmail}
+                onClick={saveLoginPassword}
                 href={"additional-information"}
             />
 
@@ -28,4 +29,13 @@ const SignUpSecondStep = ({match}) => {
     );
 };
 
-export default SignUpSecondStep;
+const mapStateToProps = ({user}) => ({ user });
+
+const mapDispatchToProps = {
+    fetchUpdateUserRequest, fetchUpdateUserSuccess
+};
+
+export default compose(
+    withService(),
+    connect(mapStateToProps, mapDispatchToProps)
+)(SignUpSecondStep);
