@@ -4,6 +4,16 @@ export default class UserController extends Service {
 
     USER_URL = "/user";
 
+    checkEmailUniqueness = async (email) => {
+        const response = await this.GET(this.USER_URL + `/email=${email}`);
+        return response.content;
+    };
+
+    checkLoginUniqueness = async (login) => {
+        const response = await this.GET(this.USER_URL + `/login=${login}`);
+        return response.content;
+    };
+
     signUp = async (user) => {
         const response = await this.PUT(this.USER_URL + "/sign-up", user);
         return this.promise(response);

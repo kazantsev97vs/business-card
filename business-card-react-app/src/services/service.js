@@ -30,13 +30,9 @@ export default class  Service {
             init.body = Type.isString(body) ? body : JSON.stringify(body);
         }
 
-        console.log(init);
-
         const fetchedData = await fetch(URL, init);
 
-        console.log(fetchedData);
-
-        return fetchedData.json();
+        return this.promise(fetchedData);
     };
 
 
@@ -51,20 +47,15 @@ export default class  Service {
     async PATCH ( url, body, headers ) { return this.FETCH (this._PATCH, url, body, headers) }
 
 
-    promise = (response) => new Promise((resolve, reject) => {
+    promise =  (response) =>  new Promise((resolve, reject) =>  {
 
-        console.log(response);
+        const result = response.json();
 
-        if (response) {
-
-            const {status, message, result} = response;
-
-            if (status !== 200) reject(new Error(message));
-
-            resolve(result);
+        if (response.status !== 200) {
+            return reject(new Error(result));
         }
 
-        reject(new Error("No response..."));
+        return resolve(result);
     });
 }
 
