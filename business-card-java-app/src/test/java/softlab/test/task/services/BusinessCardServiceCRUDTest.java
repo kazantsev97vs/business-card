@@ -58,7 +58,7 @@ public class BusinessCardServiceCRUDTest {
         List<Skill> skills = new ArrayList<>();
         skills.add(skill);
 
-        Position careerObjective = new Position("Java developer", professionalArea);
+        Position careerObjective = new Position("Java developer");
 
         Double salary = 100_000.0;
 
