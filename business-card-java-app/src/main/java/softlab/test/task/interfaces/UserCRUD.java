@@ -6,4 +6,6 @@ public interface UserCRUD {
 
     User getByLogin(String login);
 
+    User getByEmail(String email);
+
 }

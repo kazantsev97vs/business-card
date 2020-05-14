@@ -22,9 +22,48 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/sign-up")
+    @GetMapping("/email={email}")
+    public HttpEntity<ApiResponse<Boolean>> checkEmailUniqueness(@PathVariable(name = "email") String email) {
+
+
+        Boolean isUserWithTheEmailExists = userService.checkEmailUniqueness(email);
+
+        ApiResponse<Boolean> response = new ApiResponse<>(isUserWithTheEmailExists);
+        HttpStatus status = HttpStatus.OK;
+
+        if (!isUserWithTheEmailExists) {
+            response = new ApiErrorResponse<>(false, "User with email: " + email + " already exists");
+            status = HttpStatus.BAD_REQUEST;
+        }
+
+        response.add(linkTo(methodOn(UserController.class).checkEmailUniqueness(email)).withSelfRel());
+        return new ResponseEntity<>(response, status);
+    }
+
+    @GetMapping("/login={login}")
+    public HttpEntity<ApiResponse<Boolean>> checkLoginUniqueness(@PathVariable(name = "login") String login) {
+
+
+        Boolean isUserWithTheLoginExists = userService.checkLoginUniqueness(login);
+
+        ApiResponse<Boolean> response = new ApiResponse<>(isUserWithTheLoginExists);
+        HttpStatus status = HttpStatus.OK;
+
+        if (!isUserWithTheLoginExists) {
+            response = new ApiErrorResponse<>(false, "User with login: " + login + " already exists");
+            status = HttpStatus.BAD_REQUEST;
+        }
+
+        response.add(linkTo(methodOn(UserController.class).checkLoginUniqueness(login)).withSelfRel());
+        return new ResponseEntity<>(response, status);
+    }
+
+
+
+    @PutMapping("/sign-up")
     public HttpEntity<ApiResponse<User>> signUp(@RequestBody User user) {
-        User savedUser = userService.save(user);
+
+        User savedUser = userService.signUp(user);
 
         ApiResponse<User> response = new ApiResponse<>(savedUser);
 
@@ -40,20 +79,13 @@ public class UserController {
     @PostMapping("/log-in")
     public HttpEntity<ApiResponse<User>> logIn(@RequestBody LogInUser logInUser) {
 
-        User user = userService.getByLogin(logInUser.getLogin());
+        User user = userService.logIn(logInUser);
 
         ApiResponse<User> response = new ApiResponse<>(user);
 
         if (null == user) {
             User errorUser = new User(logInUser.getLogin(), logInUser.getPassword());
             response = new ApiErrorResponse<>(errorUser, "There is no user with login: " + logInUser.getLogin());
-            response.add(linkTo(methodOn(UserController.class).logIn(logInUser)).withSelfRel());
-            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-        }
-
-        if (!user.getPassword().equals(logInUser.getPassword())) {
-            User errorUser = new User(logInUser.getLogin(), logInUser.getPassword());
-            response = new ApiErrorResponse<>(errorUser, "WRONG PASSWORD");
             response.add(linkTo(methodOn(UserController.class).logIn(logInUser)).withSelfRel());
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
