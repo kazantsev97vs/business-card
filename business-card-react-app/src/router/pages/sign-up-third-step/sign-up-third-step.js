@@ -6,11 +6,23 @@ import {compose} from "redux";
 import withService from "../../../additional-components/hoc/withService";
 import {connect} from "react-redux";
 
-const SignUpThirdStep = ({user, fetchUpdateUserRequest, fetchUpdateUserSuccess}) => {
+const SignUpThirdStep = ({user, userController, fetchUpdateUserRequest, fetchUpdateUserSuccess}) => {
 
+    console.log()
     const saveGenderCurrentCity = ({gender, currentCity}) => {
         const updatedUser = {...user.user, gender, currentCity};
+
         fetchUpdateUserRequest();
+        
+        userController.signUp(updatedUser)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(res => {
+                console.log(res);
+            });
+
+
         fetchUpdateUserSuccess(updatedUser);
     };
 
